@@ -16,8 +16,8 @@ __pycache__/
 *.sublime-project
 *.sublime-workspace
 
-# Large Raw Data Files (keep cleaned samples in data/processed/ for cloud deployment)
-data/raw/*.csv
+# Large Raw Data Files (ignore 373MB zomato.csv, keep Mumbai CSV and cleaned CSV for cloud deployment)
+data/raw/zomato.csv
 *.db
 *.sqlite3
 

@@ -135,7 +135,7 @@ def initialize_store(force_reinit: bool = False) -> MetadataStore:
     if _store is not None and not force_reinit:
         return _store
 
-    custom_file = os.getenv("DATASET_FILE", "").strip()
+    custom_file = os.getenv("DATASET_FILE", "Zomato_Mumbai_Dataset.csv").strip()
     candidates = []
     if custom_file:
         custom_path = Path(custom_file)
@@ -143,13 +143,13 @@ def initialize_store(force_reinit: bool = False) -> MetadataStore:
             custom_path = RAW_DATA_DIR / custom_file
         candidates.append(custom_path)
 
-    default_csv = RAW_DATA_DIR / "zomato.csv"
-    if default_csv not in candidates:
-        candidates.append(default_csv)
-
     processed_csv = BASE_DIR / "data" / "processed" / "zomato_cleaned.csv"
     if processed_csv not in candidates:
         candidates.append(processed_csv)
+
+    default_csv = RAW_DATA_DIR / "zomato.csv"
+    if default_csv not in candidates:
+        candidates.append(default_csv)
 
     for csv_path in candidates:
         if csv_path.exists():

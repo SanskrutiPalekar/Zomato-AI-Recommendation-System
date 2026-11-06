@@ -51,7 +51,7 @@ def _is_port_in_use(port: int, host: str = "127.0.0.1") -> bool:
 
 
 @st.cache_resource(show_spinner="Initializing Zomato AI Knowledge Base & FastAPI Backend...")
-def init_backend(_version: int = 2):
+def init_backend(_version: int = 3):
     """
     Initializes the singleton MetadataStore & ZomatoAIService once per container,
     and starts the FastAPI backend on port 8000 in a background daemon thread
